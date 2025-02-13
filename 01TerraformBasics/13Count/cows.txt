@@ -1,0 +1,1 @@
+This is a sample content for /Users/Sahil/Desktop/Terraform-for-Rookies/01TerraformBasics/13Count/cows.txt
