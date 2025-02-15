@@ -1,16 +1,19 @@
-resource "aws_s3_bucket" "ios-books-bucket1" {
-	bucket = "ios-books"
-	tags = {
-	  Description = "iOS Development"
-	}
+resource "aws_iam_policy" "ios_s3_policy" {
+  name        = "ios_s3_access_policy"
+  description = "Allows iOS group to access S3 bucket"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = ["s3:ListBucket", "s3:GetObject", "s3:PutObject"]
+        Resource = [
+          "arn:aws:s3:::ios-books",
+          "arn:aws:s3:::ios-books/*"
+        ]
+      }
+    ]
+  })
 }
 
-resource "aws_s3_bucket_object" "book-1" {
-	content = "/Users/Sahil/Desktop/SHLResumeNP.pdf"
-  key = "SHLResumeNP.pdf"
-  bucket = ios-books.ios-books-bucket1.id
-}
-
-data "aws_iam_group" "ios-bucket-group" {
-  group_name = "ios"
-}
