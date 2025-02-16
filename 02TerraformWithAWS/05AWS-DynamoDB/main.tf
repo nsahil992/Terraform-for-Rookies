@@ -2,7 +2,7 @@ resource "aws_dynamodb_table" "cars" {
 	name = "cars"
 	hash_key = "VIN"
 	billing_mode = "PAY_PER_REQUEST"
-	attribute = {
+	attribute  {
 	  name = "VIN"
 	  type = "S"
 	}
@@ -16,8 +16,8 @@ resource "aws_dynamodb_table_item" "car-items" {
 	{ 
 		"Manufacturer": {"S": "Toyota"},
 		"Model": {"S": "Lexus"},
-		"Year": {"N": 2024},
-		"VIN": {"S": "S9923482723H492038"},
+		"Year": {"N": "2024"},
+		"VIN": {"S": "S9923482723H492038"}
 	}
 	EOF
 }
