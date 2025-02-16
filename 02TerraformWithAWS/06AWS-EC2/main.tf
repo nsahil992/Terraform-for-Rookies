@@ -1,9 +1,9 @@
 resource "aws_instance" "terra-learn" {
-	ami = "ami00bb6a80f01f03502"
-	instance = "t2.micro"
+	ami = "ami-00bb6a80f01f03502"
+	instance_type = "t2.micro"
 	tags = {
 	  Description = "A terraform learning web server"
-	  Name = "terraa-learn"
+	  Name = "terra-learn"
 
 }
 	user_data = <<-EOF
